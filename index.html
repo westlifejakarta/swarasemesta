@@ -386,6 +386,11 @@ id="floatingButton"
     <p>
       Siap buat lepas dari orbit dan masuk ke malam penuh musik,
       euforia, dan momen yang nggak bisa diulang?
+      Karena di Swara Semesta Malang,
+      kita nggak cuma datang buat nonton —
+      kita datang buat nyanyi bareng,
+      teriak bareng,
+      dan bikin kenangan yang bakal terus muter di kepala.
     </p>
 
     <p>
@@ -393,12 +398,118 @@ id="floatingButton"
       Tanggal : 10 Juli 2026
     </p>
 
+    <p>
+      Dan kali ini, kita nggak main-main.
+      Bersiap jadi bagian dari salah satu konser indoor terbesar di Malang.
+    </p>
+
+    <p>
+      Di dalam satu ruang, ribuan suara bakal nyatu.
+      Tanpa panas.
+      Tanpa hujan.
+      Tanpa distraksi.
+      Cuma kamu, musik, dan euforia yang penuh dari awal sampai lampu terakhir dimatikan.
+    </p>
+
     <h3>Line Up:</h3>
 
     <ul>
       <li>Perunggu</li>
       <li>Padi Reborn</li>
-      <li>Dan masih banyak lagi</li>
+      <li>Masih banyak bintang lainnya yang akan segera diumumkan...</li>
+    </ul>
+
+    <p>
+      Ajak teman konsermu,
+      siapin suara,
+      kosongin galeri,
+      dan bersiap buat malam yang bakal terasa jauh lebih dekat dari galaksi.
+    </p>
+
+    <p>
+      <strong>One Night Across The Galaxy.</strong><br>
+      See you under the same universe.
+    </p>
+
+    <h2>Line Up</h2>
+
+    <ul>
+      <li>Padi Reborn</li>
+      <li>Perunggu</li>
+      <li>Dan masih akan ada lagi</li>
+    </ul>
+
+    <h2>Tentang Tiket</h2>
+
+    <ul>
+      <li>Maksimum pembelian tiket pada periode Early Bird hanya 4 tiket per kategori per transaksi</li>
+      <li>Khusus tiket Early Bird TIDAK BISA DIPINDAHTANGANKAN dengan alasan apapun</li>
+      <li>Seluruh penonton wajib memiliki tiket, kecuali anak-anak dibawah 3 tahun free</li>
+      <li>Penonton dengan usia dibawah 12 tahun wajib didampingi orang dewasa/orang tua</li>
+      <li>Tiket yang sudah dibeli tidak dapat dikembalikan kecuali acara dibatalkan oleh penyelenggara</li>
+      <li>Setelah penjualan Early Bird, akan ada Presale 1, Presale 2, hingga OTS</li>
+      <li>Tersedia Kids Arena untuk bermain anak-anak (GRATIS)</li>
+    </ul>
+
+    <h3>Tentang Tiket Tribun B</h3>
+
+    <p>
+      Tiket Tribun B cocok banget buat kamu yang pingin ngonser
+      dan ngerasain vibes konser Band Legend tanpa kuatir kantong jebol.
+    </p>
+
+    <h3>Tentang Tiket Tribun A</h3>
+
+    <p>
+      Tiket Tribun A adalah tiket dengan pengalaman yang tidak kalah bagusnya,
+      dimana kamu bisa ngonser seru-seruan dengan posisi yang pas banget,
+      & bisa ngerasain kualitas audio terbaik.
+    </p>
+
+    <h3>Tentang Tiket VIP Standing</h3>
+
+    <p>
+      Tiket VIP Standing adalah kategori dengan view
+      dan pengalaman menonton terbaik,
+      dengan posisi berdiri persis didepan stage.
+    </p>
+
+    <h3>Tentang Tiket VVIP</h3>
+
+    <p>
+      Tiket VVIP adalah kategori Seating (Duduk)
+      dengan seating number,
+      yang tentunya ga akan bikin kamu capek.
+    </p>
+
+    <p>
+      Seluruh tiket yang sudah dibeli tidak dapat dikembalikan
+      kecuali acara dibatalkan oleh penyelenggara
+      (No Refund, No Upgrade / Downgrade)
+    </p>
+
+    <h3>Benefit VVIP</h3>
+
+    <ul>
+      <li>Seating Number</li>
+      <li>Limited Ticket</li>
+      <li>VVIP Access</li>
+      <li>Official Merch Swara Semesta</li>
+      <li>Goodie Bag Sponsor Produk</li>
+    </ul>
+
+    <p>
+      <strong>*Harga belum termasuk pajak dan biaya admin</strong>
+    </p>
+
+    <h2>Tentang Penukaran Tiket</h2>
+
+    <ul>
+      <li>WAJIB membawa KTP Asli bagi penonton diatas 17 tahun</li>
+      <li>Jika belum memiliki KTP, bisa membawa Foto KK / KIA untuk pencocokkan data</li>
+      <li>Penukaran e-tiket menjadi gelang akan diumumkan selanjutnya di Instagram @officialswarasemesta</li>
+      <li>Link Surat Pernyataan Orang Tua : http://tiny.cc/surat_pernyataan</li>
+      <li>Link Surat Kuasa : https://bit.ly/surat_kuasa_dewatiket</li>
     </ul>
 
     <!-- LAYOUT -->
@@ -553,7 +664,6 @@ const floatingButton = document.getElementById("floatingButton");
 
 floatingButton.addEventListener("click", function(e){
 
-  // kalau belum pilih tiket
   if(!this.classList.contains("selected")){
 
     e.preventDefault();
@@ -572,22 +682,17 @@ floatingButton.addEventListener("click", function(e){
 
 function selectTicket(element, ticketName){
 
-  // hapus active sebelumnya
   document.querySelectorAll('.ticket-card').forEach(card=>{
     card.classList.remove('active-ticket');
   });
 
-  // aktifkan tiket
   element.classList.add('active-ticket');
 
-  // ubah tombol
   floatingButton.innerHTML =
   "🎟️ BELI " + ticketName;
 
-  // ubah warna tombol
   floatingButton.classList.add("selected");
 
-  // redirect link
   floatingButton.href =
   "https://eticketdigital.github.io/FROM-SWARA-SEMESTA/";
 
