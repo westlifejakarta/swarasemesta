@@ -1,512 +1,746 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Swara Semesta Malang</title>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, Helvetica, sans-serif;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    html{
-      scroll-behavior:smooth;
-    }
+<title>Swara Semesta Malang</title>
 
-    body{
-      background:#0b0b0b;
-      color:#ffffff;
-      line-height:1.7;
-    }
+<style>
 
-    .container{
-      width:100%;
-      max-width:900px;
-      margin:auto;
-      background:#121212;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, Helvetica, sans-serif;
+}
 
-    .poster img{
-      width:100%;
-      display:block;
-    }
+html{
+  scroll-behavior:smooth;
+}
 
-    .content{
-      padding:25px;
-    }
+body{
+  background:#0b0b0b;
+  color:#ffffff;
+  line-height:1.7;
+}
 
-    h1{
-      font-size:34px;
-      margin-bottom:15px;
-      color:#ffffff;
-    }
+.container{
+  width:100%;
+  max-width:900px;
+  margin:auto;
+  background:#121212;
+}
 
-    h2{
-      margin-top:35px;
-      margin-bottom:15px;
-      font-size:26px;
-      color:#ffd54f;
-      border-bottom:1px solid rgba(255,255,255,0.1);
-      padding-bottom:10px;
-    }
+.poster img{
+  width:100%;
+  display:block;
+}
 
-    h3{
-      margin-top:25px;
-      margin-bottom:10px;
-      color:#ffffff;
-      font-size:20px;
-    }
+.content{
+  padding:25px;
+}
 
-    p{
-      margin-bottom:15px;
-      color:#dddddd;
-    }
+h1{
+  font-size:34px;
+  margin-bottom:15px;
+  color:#ffffff;
+}
 
-    ul{
-      padding-left:20px;
-      margin-bottom:20px;
-    }
+h2{
+  margin-top:35px;
+  margin-bottom:15px;
+  font-size:26px;
+  color:#ffd54f;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+  padding-bottom:10px;
+}
 
-    li{
-      margin-bottom:10px;
-      color:#dddddd;
-    }
+h3{
+  margin-top:25px;
+  margin-bottom:10px;
+  color:#ffffff;
+  font-size:20px;
+}
 
-    .info-box{
-      background:#1c1c1c;
-      border-radius:14px;
-      padding:20px;
-      margin-bottom:30px;
-      border:1px solid rgba(255,255,255,0.08);
-    }
+p{
+  margin-bottom:15px;
+  color:#dddddd;
+}
 
-    .info-item{
-      margin-bottom:15px;
-    }
+ul{
+  padding-left:20px;
+  margin-bottom:20px;
+}
 
-    .label{
-      font-size:13px;
-      text-transform:uppercase;
-      letter-spacing:1px;
-      color:#aaaaaa;
-      margin-bottom:5px;
-    }
+li{
+  margin-bottom:10px;
+  color:#dddddd;
+}
 
-    .value{
-      font-size:18px;
-      font-weight:bold;
-      color:#ffffff;
-    }
+.info-box{
+  background:#1c1c1c;
+  border-radius:14px;
+  padding:20px;
+  margin-bottom:30px;
+  border:1px solid rgba(255,255,255,0.08);
+}
 
-    .layout-image{
-      margin-top:35px;
-      margin-bottom:25px;
-    }
+.info-item{
+  margin-bottom:15px;
+}
 
-    .layout-image img{
-      width:100%;
-      border-radius:12px;
-      display:block;
-    }
+.label{
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  color:#aaaaaa;
+  margin-bottom:5px;
+}
 
-    .ticket-section{
-      margin-top:20px;
-    }
+.value{
+  font-size:18px;
+  font-weight:bold;
+  color:#ffffff;
+}
 
-    .ticket-card{
-      background:#1b1b1b;
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:16px;
-      padding:20px;
-      margin-bottom:18px;
-      transition:0.3s;
-      cursor:pointer;
-    }
+.layout-image{
+  margin-top:35px;
+  margin-bottom:25px;
+}
 
-    .ticket-card:hover{
-      transform:translateY(-4px);
-      border-color:#ffd54f;
-    }
+.layout-image img{
+  width:100%;
+  border-radius:12px;
+  display:block;
+}
 
-    .active-ticket{
-      border:2px solid #00ff88;
-      background:#202020;
-    }
+/* ========================= */
+/* TICKET SECTION */
+/* ========================= */
 
-    .ticket-top{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-    }
+.ticket-section{
+  margin-top:20px;
+}
 
-    .ticket-name{
-      font-size:22px;
-      font-weight:bold;
-      color:#ffffff;
-    }
+.ticket-card{
+  background:#1b1b1b;
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:18px;
+  padding:22px;
+  margin-bottom:18px;
+  transition:0.3s;
+  cursor:pointer;
+  position:relative;
+  overflow:hidden;
+}
 
-    .status{
-      background:#00c853;
-      color:#ffffff;
-      padding:7px 14px;
-      border-radius:999px;
-      font-size:13px;
-      font-weight:bold;
-    }
+.ticket-card:hover{
+  transform:translateY(-4px);
+  border-color:#ffd54f;
+}
 
-    .ticket-type{
-      margin-top:8px;
-      color:#bbbbbb;
-      font-size:16px;
-    }
+.active-ticket{
+  border:2px solid #00ff88;
+  background:#202020;
+  box-shadow:0 0 20px rgba(0,255,136,0.25);
+}
 
-    .ticket-price{
-      margin-top:15px;
-      font-size:30px;
-      font-weight:bold;
-      color:#ffd54f;
-    }
+.ticket-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
 
-    .footer{
-      text-align:center;
-      padding:30px 20px 120px;
-      color:#999999;
-      font-size:14px;
-    }
+.ticket-name{
+  font-size:22px;
+  font-weight:bold;
+  color:#ffffff;
+}
 
-    /* FLOATING BUTTON */
+.ticket-type{
+  margin-top:8px;
+  color:#bbbbbb;
+  font-size:16px;
+}
 
-    .floating-button{
-      position:fixed;
-      left:50%;
-      bottom:25px;
-      transform:translateX(-50%);
-      background:linear-gradient(135deg,#00c853,#00e676);
-      color:#ffffff;
-      text-decoration:none;
-      padding:16px 28px;
-      border-radius:999px;
-      font-size:16px;
-      font-weight:bold;
-      z-index:9999;
-      min-width:280px;
-      text-align:center;
-      box-shadow:0 8px 30px rgba(0,0,0,0.45);
-      transition:0.3s;
-      animation:floaty 2s infinite ease-in-out;
-    }
+.ticket-price{
+  margin-top:15px;
+  font-size:30px;
+  font-weight:bold;
+  color:#ffd54f;
+}
 
-    .floating-button:hover{
-      transform:translateX(-50%) scale(1.04);
-    }
+/* STATUS */
 
-    @keyframes floaty{
-      0%{
-        transform:translateX(-50%) translateY(0px);
-      }
-      50%{
-        transform:translateX(-50%) translateY(-5px);
-      }
-      100%{
-        transform:translateX(-50%) translateY(0px);
-      }
-    }
+.status{
+  padding:8px 16px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:bold;
+  color:#ffffff;
+}
 
-    @media(max-width:768px){
+/* SOLD OUT */
 
-      h1{
-        font-size:28px;
-      }
+.status.soldout{
+  background:#ff1744;
+}
 
-      h2{
-        font-size:22px;
-      }
+.ticket-card.sold{
+  opacity:0.6;
+  cursor:not-allowed;
+}
 
-      .ticket-name{
-        font-size:18px;
-      }
+.ticket-card.sold:hover{
+  transform:none;
+  border-color:rgba(255,255,255,0.08);
+}
 
-      .ticket-price{
-        font-size:25px;
-      }
+/* HAMPIR HABIS */
 
-      .content{
-        padding:20px;
-      }
+.status.hurry{
+  background:linear-gradient(135deg,#ff9100,#ff3d00);
+  animation:pulse 1s infinite;
+}
 
-      .floating-button{
-        width:90%;
-        font-size:15px;
-        padding:15px 20px;
-      }
-    }
+@keyframes pulse{
 
-  </style>
+  0%{
+    transform:scale(1);
+    box-shadow:0 0 0 0 rgba(255,145,0,0.7);
+  }
+
+  70%{
+    transform:scale(1.05);
+    box-shadow:0 0 0 12px rgba(255,145,0,0);
+  }
+
+  100%{
+    transform:scale(1);
+    box-shadow:0 0 0 0 rgba(255,145,0,0);
+  }
+
+}
+
+/* FAKE STOCK */
+
+.stock-alert{
+  margin-top:12px;
+  color:#ffb74d;
+  font-size:14px;
+  font-weight:bold;
+  animation:blink 1s infinite;
+}
+
+@keyframes blink{
+
+  0%{
+    opacity:1;
+  }
+
+  50%{
+    opacity:0.4;
+  }
+
+  100%{
+    opacity:1;
+  }
+
+}
+
+/* FOOTER */
+
+.footer{
+  text-align:center;
+  padding:30px 20px 120px;
+  color:#999999;
+  font-size:14px;
+}
+
+/* FLOATING BUTTON */
+
+.floating-button{
+  position:fixed;
+  left:50%;
+  bottom:25px;
+  transform:translateX(-50%);
+  background:linear-gradient(135deg,#00c853,#00e676);
+  color:#ffffff;
+  text-decoration:none;
+  padding:16px 28px;
+  border-radius:999px;
+  font-size:16px;
+  font-weight:bold;
+  z-index:9999;
+  min-width:280px;
+  text-align:center;
+  box-shadow:0 8px 30px rgba(0,0,0,0.45);
+  transition:0.3s;
+  animation:floaty 2s infinite ease-in-out;
+}
+
+.floating-button:hover{
+  transform:translateX(-50%) scale(1.04);
+}
+
+@keyframes floaty{
+
+  0%{
+    transform:translateX(-50%) translateY(0px);
+  }
+
+  50%{
+    transform:translateX(-50%) translateY(-5px);
+  }
+
+  100%{
+    transform:translateX(-50%) translateY(0px);
+  }
+
+}
+
+/* BUTTON SELECTED */
+
+.floating-button.selected{
+  background:linear-gradient(135deg,#ff9100,#ff3d00);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  h1{
+    font-size:28px;
+  }
+
+  h2{
+    font-size:22px;
+  }
+
+  .ticket-name{
+    font-size:18px;
+  }
+
+  .ticket-price{
+    font-size:25px;
+  }
+
+  .content{
+    padding:20px;
+  }
+
+  .floating-button{
+    width:90%;
+    font-size:15px;
+    padding:15px 20px;
+  }
+
+}
+
+</style>
 </head>
 
 <body>
 
-  <!-- FLOATING BUTTON -->
-  <a 
-    href="https://eticketdigital.github.io/FROM-SWARA-SEMESTA/"
-    class="floating-button"
-    id="floatingButton"
-  >
-    🎫 BELI TIKET SEKARANG
-  </a>
+<!-- FLOATING BUTTON -->
 
-  <div class="container">
+<a
+href="#tickets"
+class="floating-button"
+id="floatingButton"
+>
+🎫 PILIH TIKET SEKARANG
+</a>
 
-    <!-- POSTER -->
-    <div class="poster">
-      <img src="poster.png" alt="Poster Swara Semesta Malang">
-    </div>
+<div class="container">
 
-    <!-- CONTENT -->
-    <div class="content">
+  <!-- POSTER -->
 
-      <h1>Swara Semesta Malang</h1>
+  <div class="poster">
+    <img src="poster.png" alt="Poster Swara Semesta Malang">
+  </div>
 
-      <div class="info-box">
+  <!-- CONTENT -->
 
-        <div class="info-item">
-          <div class="label">date</div>
-          <div class="value">Jumat, 10 Juli 2026</div>
-        </div>
+  <div class="content">
 
-        <div class="info-item">
-          <div class="label">location</div>
-          <div class="value">Graha Cakrawala, UM Malang</div>
-        </div>
+    <h1>Swara Semesta Malang</h1>
 
-        <div class="info-item">
-          <div class="label">instagram</div>
-          <div class="value">@officialswarasemesta</div>
-        </div>
+    <div class="info-box">
 
+      <div class="info-item">
+        <div class="label">Date</div>
+        <div class="value">Jumat, 10 Juli 2026</div>
       </div>
 
-      <h2>Tentang Swara Semesta Malang</h2>
-
-      <p><strong>SWARA SEMESTA MALANG</strong><br>
-      <strong>ONE NIGHT ACROSS THE GALAXY</strong></p>
-
-      <p>
-        Satu malam. Satu semesta. Dan ribuan cerita yang bakal dibawa pulang.
-      </p>
-
-      <p>
-        Siap buat lepas dari orbit dan masuk ke malam penuh musik, euforia, dan momen yang nggak bisa diulang?
-        Karena di Swara Semesta Malang, kita nggak cuma datang buat nonton — kita datang buat nyanyi bareng,
-        teriak bareng, dan bikin kenangan yang bakal terus muter di kepala.
-      </p>
-
-      <p>
-        Venue : Graha Cakrawala UM, Malang<br>
-        Tanggal : 10 Juli 2026
-      </p>
-
-      <p>
-        Dan kali ini, kita nggak main-main.
-        Bersiap jadi bagian dari salah satu konser indoor terbesar di Malang.
-      </p>
-
-      <p>
-        Di dalam satu ruang, ribuan suara bakal nyatu.
-        Tanpa panas. Tanpa hujan. Tanpa distraksi.
-        Cuma kamu, musik, dan euforia yang penuh dari awal sampai lampu terakhir dimatikan.
-      </p>
-
-      <h3>Line Up:</h3>
-
-      <ul>
-        <li>Perunggu</li>
-        <li>Padi Reborn</li>
-        <li>Masih banyak bintang lainnya yang akan segera diumumkan...</li>
-      </ul>
-
-      <p>
-        Ajak teman konsermu, siapin suara, kosongin galeri, dan bersiap buat malam
-        yang bakal terasa jauh lebih dekat dari galaksi.
-      </p>
-
-      <p>
-        <strong>One Night Across The Galaxy.</strong><br>
-        See you under the same universe.
-      </p>
-
-      <h2>Line Up</h2>
-
-      <ul>
-        <li>Padi Reborn</li>
-        <li>Perunggu</li>
-        <li>Dan masih akan ada lagi</li>
-      </ul>
-
-      <h2>Tentang Tiket</h2>
-
-      <ul>
-        <li>Maksimum pembelian tiket pada periode Early Bird hanya 4 tiket per kategori per transaksi</li>
-        <li>Khusus tiket Early Bird TIDAK BISA DIPINDAHTANGANKAN dengan alasan apapun</li>
-        <li>Seluruh penonton wajib memiliki tiket, kecuali anak-anak dibawah 3 tahun free</li>
-        <li>Penonton dengan usia dibawah 12 tahun wajib didampingi orang dewasa/orang tua</li>
-        <li>Tiket yang sudah dibeli tidak dapat dikembalikan kecuali acara dibatalkan oleh penyelenggara</li>
-        <li>Setelah penjualan Early Bird, akan ada Presale 1, Presale 2, hingga OTS</li>
-        <li>Tersedia Kids Arena untuk bermain anak-anak (GRATIS)</li>
-      </ul>
-
-      <h3>Tentang Tiket Tribun B</h3>
-
-      <p>
-        Tiket Tribun B cocok banget buat kamu yang pingin ngonser dan ngerasain vibes konser Band Legend tanpa kuatir kantong jebol.
-      </p>
-
-      <h3>Tentang Tiket Tribun A</h3>
-
-      <p>
-        Tiket Tribun A adalah tiket dengan pengalaman yang tidak kalah bagusnya,
-        dimana kamu bisa ngonser seru-seruan dengan posisi yang pas banget,
-        & bisa ngerasain kualitas audio terbaik.
-      </p>
-
-      <h3>Tentang Tiket VIP Standing</h3>
-
-      <p>
-        Tiket VIP Standing adalah kategori dengan view dan pengalaman menonton terbaik,
-        dengan posisi berdiri persis didepan stage.
-      </p>
-
-      <h3>Tentang Tiket VVIP</h3>
-
-      <p>
-        Tiket VVIP adalah kategori Seating (Duduk) dengan seating number,
-        yang tentunya ga akan bikin kamu capek.
-      </p>
-
-      <p>
-        Seluruh tiket yang sudah dibeli tidak dapat dikembalikan kecuali acara dibatalkan oleh penyelenggara
-        (No Refund, No Upgrade / Downgrade)
-      </p>
-
-      <h3>Benefit VVIP</h3>
-
-      <ul>
-        <li>Seating Number</li>
-        <li>Limited Ticket</li>
-        <li>VVIP Akses</li>
-        <li>Official Merch Swara Semesta</li>
-        <li>Goodie Bag Sponsor Produk</li>
-      </ul>
-
-      <p><strong>*Harga belum termasuk pajak dan biaya admin</strong></p>
-
-      <h2>Tentang Penukaran Tiket</h2>
-
-      <ul>
-        <li>WAJIB membawa KTP Asli bagi penonton diatas 17 tahun</li>
-        <li>Jika belum memiliki KTP, bisa membawa Foto KK / KIA untuk pencocokkan data</li>
-        <li>Penukaran e-tiket menjadi gelang akan diumumkan selanjutnya di Instagram @officialswarasemesta</li>
-        <li>Link Surat Pernyataan Orang Tua : http://tiny.cc/surat_pernyataan</li>
-        <li>Link Surat Kuasa : https://bit.ly/surat_kuasa_dewatiket</li>
-      </ul>
-
-      <!-- LAYOUT -->
-      <div class="layout-image">
-        <img src="layout-poster.png" alt="Layout Venue">
+      <div class="info-item">
+        <div class="label">Location</div>
+        <div class="value">Graha Cakrawala, UM Malang</div>
       </div>
 
-      <!-- TIKET -->
-      <h2 id="tickets">Tiket</h2>
-
-      <div class="ticket-section">
-
-        <div class="ticket-card" onclick="selectTicket(this,'EARLY BIRD VVIP')">
-
-          <div class="ticket-top">
-            <div class="ticket-name">EARLY BIRD VVIP</div>
-            <div class="status">ON SALE</div>
-          </div>
-
-          <div class="ticket-type">(Seating)</div>
-
-          <div class="ticket-price">Rp. 749.000</div>
-
-        </div>
-
-        <div class="ticket-card" onclick="selectTicket(this,'EARLY BIRD VIP')">
-
-          <div class="ticket-top">
-            <div class="ticket-name">EARLY BIRD VIP</div>
-            <div class="status">ON SALE</div>
-          </div>
-
-          <div class="ticket-type">(Standing)</div>
-
-          <div class="ticket-price">Rp. 249.000</div>
-
-        </div>
-
-        <div class="ticket-card" onclick="selectTicket(this,'EARLY BIRD - Tribun A')">
-
-          <div class="ticket-top">
-            <div class="ticket-name">EARLY BIRD - Tribun A</div>
-            <div class="status">ON SALE</div>
-          </div>
-
-          <div class="ticket-price">Rp. 179.000</div>
-
-        </div>
-
-        <div class="ticket-card" onclick="selectTicket(this,'EARLY BIRD - Tribun B')">
-
-          <div class="ticket-top">
-            <div class="ticket-name">EARLY BIRD - Tribun B</div>
-            <div class="status">ON SALE</div>
-          </div>
-
-          <div class="ticket-price">Rp. 149.000</div>
-
-        </div>
-
+      <div class="info-item">
+        <div class="label">Instagram</div>
+        <div class="value">@officialswarasemesta</div>
       </div>
 
     </div>
 
-    <div class="footer">
-      © 2026 Swara Semesta Malang — One Night Across The Galaxy
+    <h2>Tentang Swara Semesta Malang</h2>
+
+    <p>
+      <strong>SWARA SEMESTA MALANG</strong><br>
+      <strong>ONE NIGHT ACROSS THE GALAXY</strong>
+    </p>
+
+    <p>
+      Satu malam. Satu semesta. Dan ribuan cerita yang bakal dibawa pulang.
+    </p>
+
+    <p>
+      Siap buat lepas dari orbit dan masuk ke malam penuh musik, euforia,
+      dan momen yang nggak bisa diulang?
+      Karena di Swara Semesta Malang,
+      kita nggak cuma datang buat nonton —
+      kita datang buat nyanyi bareng,
+      teriak bareng,
+      dan bikin kenangan yang bakal terus muter di kepala.
+    </p>
+
+    <p>
+      Venue : Graha Cakrawala UM, Malang<br>
+      Tanggal : 10 Juli 2026
+    </p>
+
+    <p>
+      Dan kali ini, kita nggak main-main.
+      Bersiap jadi bagian dari salah satu konser indoor terbesar di Malang.
+    </p>
+
+    <p>
+      Di dalam satu ruang, ribuan suara bakal nyatu.
+      Tanpa panas.
+      Tanpa hujan.
+      Tanpa distraksi.
+      Cuma kamu, musik, dan euforia yang penuh dari awal sampai lampu terakhir dimatikan.
+    </p>
+
+    <h3>Line Up:</h3>
+
+    <ul>
+      <li>Perunggu</li>
+      <li>Padi Reborn</li>
+      <li>Masih banyak bintang lainnya yang akan segera diumumkan...</li>
+    </ul>
+
+    <p>
+      Ajak teman konsermu,
+      siapin suara,
+      kosongin galeri,
+      dan bersiap buat malam yang bakal terasa jauh lebih dekat dari galaksi.
+    </p>
+
+    <p>
+      <strong>One Night Across The Galaxy.</strong><br>
+      See you under the same universe.
+    </p>
+
+    <h2>Line Up</h2>
+
+    <ul>
+      <li>Padi Reborn</li>
+      <li>Perunggu</li>
+      <li>Dan masih akan ada lagi</li>
+    </ul>
+
+    <h2>Tentang Tiket</h2>
+
+    <ul>
+      <li>Maksimum pembelian tiket pada periode Early Bird hanya 4 tiket per kategori per transaksi</li>
+      <li>Khusus tiket Early Bird TIDAK BISA DIPINDAHTANGANKAN dengan alasan apapun</li>
+      <li>Seluruh penonton wajib memiliki tiket, kecuali anak-anak dibawah 3 tahun free</li>
+      <li>Penonton dengan usia dibawah 12 tahun wajib didampingi orang dewasa/orang tua</li>
+      <li>Tiket yang sudah dibeli tidak dapat dikembalikan kecuali acara dibatalkan oleh penyelenggara</li>
+      <li>Setelah penjualan Early Bird, akan ada Presale 1, Presale 2, hingga OTS</li>
+      <li>Tersedia Kids Arena untuk bermain anak-anak (GRATIS)</li>
+    </ul>
+
+    <h3>Tentang Tiket Tribun B</h3>
+
+    <p>
+      Tiket Tribun B cocok banget buat kamu yang pingin ngonser
+      dan ngerasain vibes konser Band Legend tanpa kuatir kantong jebol.
+    </p>
+
+    <h3>Tentang Tiket Tribun A</h3>
+
+    <p>
+      Tiket Tribun A adalah tiket dengan pengalaman yang tidak kalah bagusnya,
+      dimana kamu bisa ngonser seru-seruan dengan posisi yang pas banget,
+      & bisa ngerasain kualitas audio terbaik.
+    </p>
+
+    <h3>Tentang Tiket VIP Standing</h3>
+
+    <p>
+      Tiket VIP Standing adalah kategori dengan view
+      dan pengalaman menonton terbaik,
+      dengan posisi berdiri persis didepan stage.
+    </p>
+
+    <h3>Tentang Tiket VVIP</h3>
+
+    <p>
+      Tiket VVIP adalah kategori Seating (Duduk)
+      dengan seating number,
+      yang tentunya ga akan bikin kamu capek.
+    </p>
+
+    <p>
+      Seluruh tiket yang sudah dibeli tidak dapat dikembalikan
+      kecuali acara dibatalkan oleh penyelenggara
+      (No Refund, No Upgrade / Downgrade)
+    </p>
+
+    <h3>Benefit VVIP</h3>
+
+    <ul>
+      <li>Seating Number</li>
+      <li>Limited Ticket</li>
+      <li>VVIP Access</li>
+      <li>Official Merch Swara Semesta</li>
+      <li>Goodie Bag Sponsor Produk</li>
+    </ul>
+
+    <p>
+      <strong>*Harga belum termasuk pajak dan biaya admin</strong>
+    </p>
+
+    <h2>Tentang Penukaran Tiket</h2>
+
+    <ul>
+      <li>WAJIB membawa KTP Asli bagi penonton diatas 17 tahun</li>
+      <li>Jika belum memiliki KTP, bisa membawa Foto KK / KIA untuk pencocokkan data</li>
+      <li>Penukaran e-tiket menjadi gelang akan diumumkan selanjutnya di Instagram @officialswarasemesta</li>
+      <li>Link Surat Pernyataan Orang Tua : http://tiny.cc/surat_pernyataan</li>
+      <li>Link Surat Kuasa : https://bit.ly/surat_kuasa_dewatiket</li>
+    </ul>
+
+    <!-- LAYOUT -->
+
+    <div class="layout-image">
+      <img src="layout-poster.png" alt="Layout Venue">
+    </div>
+
+    <!-- TIKET -->
+
+    <h2 id="tickets">Tiket</h2>
+
+    <div class="ticket-section">
+
+      <!-- VVIP -->
+
+      <div
+      class="ticket-card"
+      onclick="selectTicket(this,'EARLY BIRD VVIP')"
+      >
+
+        <div class="ticket-top">
+
+          <div class="ticket-name">
+            EARLY BIRD VVIP
+          </div>
+
+          <div class="status hurry">
+            HAMPIR HABIS
+          </div>
+
+        </div>
+
+        <div class="ticket-type">
+          (Seating)
+        </div>
+
+        <div class="stock-alert">
+          ⚠️ Tersisa 7 tiket lagi
+        </div>
+
+        <div class="ticket-price">
+          Rp. 749.000
+        </div>
+
+      </div>
+
+      <!-- VIP -->
+
+      <div
+      class="ticket-card"
+      onclick="selectTicket(this,'EARLY BIRD VIP')"
+      >
+
+        <div class="ticket-top">
+
+          <div class="ticket-name">
+            EARLY BIRD VIP
+          </div>
+
+          <div class="status hurry">
+            HAMPIR HABIS
+          </div>
+
+        </div>
+
+        <div class="ticket-type">
+          (Standing)
+        </div>
+
+        <div class="stock-alert">
+          ⚠️ Tinggal beberapa tiket
+        </div>
+
+        <div class="ticket-price">
+          Rp. 249.000
+        </div>
+
+      </div>
+
+      <!-- TRIBUN A -->
+
+      <div class="ticket-card sold">
+
+        <div class="ticket-top">
+
+          <div class="ticket-name">
+            EARLY BIRD - Tribun A
+          </div>
+
+          <div class="status soldout">
+            SOLD OUT
+          </div>
+
+        </div>
+
+        <div class="ticket-type">
+          Tiket habis terjual
+        </div>
+
+        <div class="ticket-price">
+          Rp. 179.000
+        </div>
+
+      </div>
+
+      <!-- TRIBUN B -->
+
+      <div class="ticket-card sold">
+
+        <div class="ticket-top">
+
+          <div class="ticket-name">
+            EARLY BIRD - Tribun B
+          </div>
+
+          <div class="status soldout">
+            SOLD OUT
+          </div>
+
+        </div>
+
+        <div class="ticket-type">
+          Tiket habis terjual
+        </div>
+
+        <div class="ticket-price">
+          Rp. 149.000
+        </div>
+
+      </div>
+
     </div>
 
   </div>
 
-  <script>
+  <!-- FOOTER -->
 
-    function selectTicket(element, ticketName){
+  <div class="footer">
+    © 2026 Swara Semesta Malang — One Night Across The Galaxy
+  </div>
 
-      // hapus active sebelumnya
-      document.querySelectorAll('.ticket-card').forEach(card=>{
-        card.classList.remove('active-ticket');
-      });
+</div>
 
-      // active tiket dipilih
-      element.classList.add('active-ticket');
+<script>
 
-      // ubah tulisan tombol
-      document.getElementById('floatingButton').innerHTML =
-      '🎟️ BELI ' + ticketName;
+/* ===================================== */
+/* BUTTON SCROLL */
+/* ===================================== */
 
-      // redirect link
-      document.getElementById('floatingButton').href =
-      'https://eticketdigital.github.io/FROM-SWARA-SEMESTA/';
+const floatingButton = document.getElementById("floatingButton");
 
-    }
+floatingButton.addEventListener("click", function(e){
 
-  </script>
+  // kalau belum pilih tiket
+  if(!this.classList.contains("selected")){
+
+    e.preventDefault();
+
+    document.getElementById("tickets").scrollIntoView({
+      behavior:"smooth"
+    });
+
+  }
+
+});
+
+/* ===================================== */
+/* PILIH TIKET */
+/* ===================================== */
+
+function selectTicket(element, ticketName){
+
+  // hapus active sebelumnya
+  document.querySelectorAll('.ticket-card').forEach(card=>{
+    card.classList.remove('active-ticket');
+  });
+
+  // aktifkan tiket
+  element.classList.add('active-ticket');
+
+  // ubah tombol
+  floatingButton.innerHTML =
+  "🎟️ BELI " + ticketName;
+
+  // tombol berubah warna
+  floatingButton.classList.add("selected");
+
+  // redirect link
+  floatingButton.href =
+  "https://eticketdigital.github.io/FROM-SWARA-SEMESTA/";
+
+}
+
+/* ===================================== */
+/* RANDOM FAKE STOCK */
+/* ===================================== */
+
+const alerts = document.querySelectorAll(".stock-alert");
+
+setInterval(()=>{
+
+  alerts.forEach(alert=>{
+
+    const random = Math.floor(Math.random() * 10) + 1;
+
+    alert.innerHTML =
+    "⚠️ Tersisa " + random + " tiket lagi";
+
+  });
+
+},3000);
+
+</script>
 
 </body>
 </html>
